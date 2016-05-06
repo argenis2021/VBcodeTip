@@ -1,0 +1,10 @@
+'Code tu count in a report
+
+Private Sub Report_Open(Cancel As Integer)
+DoCmd.Maximize
+countString = "SELECT Count([RIF]) AS Expr1 FROM (SELECT ConEmpInt.RIF FROM ConEmpInt GROUP BY ConEmpInt.RIF)"
+Conteo = CurrentDb.OpenRecordset(countString).Fields(0).Value
+Me.Etiqueta59.Caption = Conteo
+End Sub
+
+'The "ConEmpInt" is a query that count de row in a table from the database
