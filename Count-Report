@@ -1,4 +1,4 @@
-'Code tu count in a report
+'Code to count wos in a report
 
 Private Sub Report_Open(Cancel As Integer)
 DoCmd.Maximize
