@@ -1,0 +1,15 @@
+Private Sub cmdCloseForm_Click() 
+
+On Error GoTo Err_cmdCloseForm_Click 
+ 
+ DoCmd.RunCommand acCmdSaveRecord 
+ DoCmd.Close 
+ 
+Exit_cmdCloseForm_Click: 
+ Exit Sub 
+ 
+Err_cmdCloseForm_Click: 
+ MsgBox Err.Description 
+ Resume Exit_cmdCloseForm_Click 
+ 
+End Sub

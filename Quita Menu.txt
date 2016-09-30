@@ -1,0 +1,7 @@
+'Se inserta en un Módulo como:
+
+Public Function QuitaMenu()
+
+DoCmd.ShowToolbar "Ribbon", acToolbarNo
+
+End Function

@@ -1,0 +1,5 @@
+Private Sub Form_Load() 'place this sub in each forms "Load" event
+
+SetFormIcon Me.hWnd, "d:\Documents and Settings\castellanoav\Mis documentos\Mis imágenes\Icons Heber\cniplogico.ico" 'Location of icon file
+
+End Sub

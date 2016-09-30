@@ -1,0 +1,6 @@
+'Respalda a base de datos haciendo un llamdo a la un script elaborado en bash
+
+Dim stAppName As String
+'Ruta del arcivo, debe incluir la extension
+stAppName = "P:\SIGAD\SCRIPT\script-bkfecha-SIGAD.BAT"
+Call Shell(stAppName, 1)

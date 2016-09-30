@@ -1,0 +1,1 @@
+Forms![FrmEmp].Comando27.Enabled = False

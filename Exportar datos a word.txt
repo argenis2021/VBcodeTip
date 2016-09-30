@@ -1,0 +1,76 @@
+'Print customer slip for current customer.
+
+Dim appWord As Word.Application
+
+Dim doc As Word.Document
+
+Dim rst As ADODB.Recordset
+
+'Avoid error 429, when Word isn't open.
+
+On Error Resume Next
+
+Err.Clear
+
+'Set appWord object variable to running instance of Word.
+
+Set appWord = GetObject(, "Word.Application")
+
+If Err.Number <> 0 Then
+
+'If Word isn't open, create a new instance of Word.
+
+Set appWord = New Word.Application
+
+End If
+
+'Populate recordset object.
+
+Set rst = New ADODB.Recordset
+
+rst.Open "SELECT * FROM [EMPRESAS GREMIOS]", CurrentProject.Connection
+
+
+'Cycle through records to fill Word form fields.
+
+Do While Not rst.EOF
+
+Set doc = appWord.Documents.Open("D:\Documents and Settings\MONCADAAJ\Mis documentos\LlenarWord.docx", , True)
+
+With doc
+
+.FormFields("Nombre").Result = rst![EMPRESA/ RAZÓN SOCIAL]
+
+.FormFields("Dirección").Result = rst!DIRECCIÓN
+
+.FormFields("Estado").Result = rst!ESTADO
+
+.FormFields("Contacto").Result = rst!REPRESENTANTE
+
+.Visible = True
+
+.Activate
+
+'.PrintOut
+
+.SaveAs (rst!RIF)
+
+appWord.Documents(rst!RIF & ".docx").Close
+
+
+
+rst.MoveNext
+
+End With
+
+Loop
+
+Set doc = Nothing
+
+Set appWord = Nothing
+
+Exit Sub
+
+errHandler:
+
+MsgBox Err.Number & ": " & Err.Description

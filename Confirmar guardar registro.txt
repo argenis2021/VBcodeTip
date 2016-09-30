@@ -1,0 +1,15 @@
+If NewRecord Then
+If Msgbox("¿Guardar registro?",vbYesNo,"Registros")= vbNo Then
+Me.Undo
+Else
+Docmd.RunComand acCmdSaveRecord
+End If
+Else
+if Dirty Then
+If Msgbox("¿Desea salvar los cambios?",vbYesNo,"Registros")=vbNo then
+Me.Undo
+Else
+Docmd.RunComand acCmdSaveRecord
+End If
+End If
+End If 

@@ -1,0 +1,40 @@
+Private Sub CmdEdits_Click()
+If AllowEdits = False Then
+AllowEdits = True
+AllowAdditions = True
+Me.AvaFisPlaDat.Locked = False
+Me.AvaFisPlaGra.Locked = False
+Me.DesFinPlaDat.Locked = False
+Me.EmpEjeDirDat.Locked = False
+Me.EmpEjeIndDat.Locked = False
+Me.EmpOpeDirDat.Locked = False
+Me.EmpOpeIndDat.Locked = False
+Me.EmpEjeDirGra.Locked = False
+Me.EmpEjeIndGra.Locked = False
+Me.EmpOpeDirGra.Locked = False
+Me.EmpOpeIndGra.Locked = False
+Me.Obs.Locked = False
+
+Me.CmdEdits.Caption = "Bloquear Formulario"
+Form_Principal.Caption = "Base de Datos Proyectos de Infraestructura"
+MsgBox "Se ha desactivado la Protección del Formulario, ya puede realizar modificaciones en los registros.", vbInformation, "Protección del Formulario"
+Else
+AllowEdits = False
+AllowAdditions = False
+Me.AvaFisPlaDat.Locked = True
+Me.AvaFisPlaGra.Locked = True
+Me.DesFinPlaDat.Locked = True
+Me.EmpEjeDirDat.Locked = True
+Me.EmpEjeIndDat.Locked = True
+Me.EmpOpeDirDat.Locked = True
+Me.EmpOpeIndDat.Locked = True
+Me.EmpEjeDirGra.Locked = True
+Me.EmpEjeIndGra.Locked = True
+Me.EmpOpeDirGra.Locked = True
+Me.EmpOpeIndGra.Locked = True
+Me.Obs.Locked = True
+Me.CmdEdits.Caption = "Desbloquear Formulario"
+Form_Principal.Caption = "Base de Datos Proyectos de Infraestructura (Solo Lectura)"
+MsgBox "Los cambios han sido guardados y se ha activado la Protección del formulario.", vbInformation, "Protección del Formulario"
+End If
+End Sub

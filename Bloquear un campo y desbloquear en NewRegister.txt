@@ -1,0 +1,22 @@
+Sacas las propiedades del formulario -> Pestaña Eventos -> Al activar registro
+
+- En ese evento le generas el siguiente código:
+
+...
+Private Sub...
+If me.newrecord then
+With me
+.Campo1.enabled=true
+.Campo2.enabled=true
+'Y así con el resto de campos
+End with
+Else
+With me
+.Campo1.enabled=false
+.Campo2.enabled=false
+'Y así con el resto de campos
+End with
+End if
+End sub
+...
+El código lo que hace es desbloquearte los campos si te sitúas en un registro nuevo; en caso contrario los bloquea.

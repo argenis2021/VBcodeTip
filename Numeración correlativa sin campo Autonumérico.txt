@@ -1,0 +1,3 @@
+if me.codigocliente < 1 then
+me.codigocliente=DMax(“codigocliente”,”Nombretabla”)+1
+end if

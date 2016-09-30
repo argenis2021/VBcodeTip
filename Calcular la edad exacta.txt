@@ -1,0 +1,1 @@
+edad:ent(Ahora()-[FECHA NACIMIENTO]/365)
